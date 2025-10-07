@@ -154,6 +154,14 @@ Route::middleware(['auth', 'check.role:vendeur'])->group(function () {
         Route::post('/{quote}/reject', [QuoteController::class, 'reject'])->name('reject');
         Route::post('/{quote}/convert', [QuoteController::class, 'convertToOrder'])->name('convert');
     });
+
+    // Routes pour les factures (Vendeurs)
+    Route::prefix('invoices')->name('invoices.')->group(function () {
+        Route::get('/', [InvoiceController::class, 'index'])->name('index');
+        Route::get('/{invoice}', [InvoiceController::class, 'show'])->name('show');
+        Route::get('/{invoice}/download', [InvoiceController::class, 'download'])->name('download');
+        Route::get('/export/csv', [InvoiceController::class, 'export'])->name('export');
+    });
 });
 
 Route::middleware(['auth', 'check.role:grossiste'])->prefix('admin')->name('admin.')->group(function () {
