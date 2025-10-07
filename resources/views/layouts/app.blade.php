@@ -412,6 +412,17 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('admin.invoices.*') ? 'active' : '' }}" href="{{ route('admin.invoices.index') }}">
+                            <i class="bi bi-file-earmark-text"></i> Factures
+                            @php
+                                $pendingInvoices = \App\Models\Invoice::where('tenant_id', Auth::user()->tenant_id)->where('status', 'pending')->count();
+                            @endphp
+                            @if($pendingInvoices > 0)
+                                <span class="badge bg-warning ms-1">{{ $pendingInvoices }}</span>
+                            @endif
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#">
                             <i class="bi bi-box"></i> Stock
                         </a>
@@ -427,11 +438,21 @@
                     </li>
 
                     <li class="nav-item mt-3">
-                        <small class="text-muted ps-3">RAPPORTS</small>
+                        <small class="text-muted ps-3">RAPPORTS & ANALYTICS</small>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-graph-up"></i> Analytics
+                        <a class="nav-link {{ request()->routeIs('admin.reports.*') ? 'active' : '' }}" href="{{ route('admin.reports.index') }}">
+                            <i class="bi bi-bar-chart"></i> Rapports
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('admin.currencies.*', 'admin.exchange-rates.*') ? 'active' : '' }}" href="{{ route('admin.currencies.index') }}">
+                            <i class="bi bi-currency-exchange"></i> Devises
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('admin.integrations.*') ? 'active' : '' }}" href="{{ route('admin.integrations.index') }}">
+                            <i class="bi bi-plug"></i> Intégrations ERP
                         </a>
                     </li>
 
@@ -482,6 +503,11 @@
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('quotes.*') ? 'active' : '' }}" href="{{ route('quotes.index') }}">
                             <i class="bi bi-file-text"></i> Devis
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('invoices.*') ? 'active' : '' }}" href="{{ route('invoices.index') }}">
+                            <i class="bi bi-receipt"></i> Mes Factures
                         </a>
                     </li>
 
