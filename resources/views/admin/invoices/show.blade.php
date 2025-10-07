@@ -14,6 +14,12 @@
             <a href="{{ route('admin.invoices.index') }}" class="btn btn-secondary">
                 <i class="fas fa-arrow-left me-1"></i> Retour
             </a>
+            <a href="{{ route('admin.invoices.pdf', $invoice->id) }}" target="_blank" class="btn btn-info">
+                <i class="fas fa-file-pdf me-1"></i> Voir PDF
+            </a>
+            <a href="{{ route('admin.invoices.download', $invoice->id) }}" class="btn btn-success">
+                <i class="fas fa-download me-1"></i> Télécharger PDF
+            </a>
             <button onclick="window.print()" class="btn btn-primary">
                 <i class="fas fa-print me-1"></i> Imprimer
             </button>

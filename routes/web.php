@@ -228,12 +228,14 @@ Route::middleware(['auth', 'check.role:grossiste'])->prefix('admin')->name('admi
 
     Route::prefix('invoices')->name('invoices.')->group(function () {
         Route::get('/', [AdminInvoiceController::class, 'index'])->name('index');
+        Route::get('/export/csv', [AdminInvoiceController::class, 'export'])->name('export');
         Route::get('/{invoice}', [AdminInvoiceController::class, 'show'])->name('show');
+        Route::get('/{invoice}/pdf', [AdminInvoiceController::class, 'streamPDF'])->name('pdf');
+        Route::get('/{invoice}/download', [AdminInvoiceController::class, 'downloadPDF'])->name('download');
         Route::post('/generate-from-order/{order}', [AdminInvoiceController::class, 'generateFromOrder'])->name('generate-from-order');
         Route::post('/{invoice}/update-status', [AdminInvoiceController::class, 'updateStatus'])->name('update-status');
         Route::post('/{invoice}/mark-sent', [AdminInvoiceController::class, 'markAsSent'])->name('mark-sent');
         Route::post('/{invoice}/mark-paid', [AdminInvoiceController::class, 'markAsPaid'])->name('mark-paid');
-        Route::get('/export/csv', [AdminInvoiceController::class, 'export'])->name('export');
     });
 
     Route::prefix('returns')->name('returns.')->group(function () {

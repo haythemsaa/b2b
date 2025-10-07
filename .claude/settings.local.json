@@ -1,14 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(\"C:\\wamp64\\bin\\php\\php8.1.0\\php.exe\" artisan tinker --execute=\"dump(''web.php lines: '' . count(file(''C:/xampp2025/htdocs/b2bn/routes/web.php'')));\")",
-      "Bash(\"C:\\wamp64\\bin\\php\\php8.1.0\\php.exe\" artisan route:list)",
-      "Bash(findstr:*)",
-      "Bash(composer:*)",
-      "Bash(git init:*)",
-      "Bash(git remote add:*)",
-      "Bash(git add:*)",
-      "Bash(if exist nul del nul)"
+      "Bash(\"C:\\wamp64\\bin\\php\\php8.1.0\\php.exe\" C:ProgramDataComposerSetupbincomposer.phar require barryvdh/laravel-dompdf --no-interaction)",
+      "Bash(php composer.phar require:*)",
+      "Bash(where composer)",
+      "Bash(\"C:\\wamp64\\bin\\php\\php8.1.0\\composer.cmd\" require barryvdh/laravel-dompdf --no-interaction)",
+      "Bash(\"C:\\wamp64\\bin\\php\\php8.1.0\\php.exe\" artisan vendor:publish --provider=\"Barryvdh\\DomPDF\\ServiceProvider\")"
     ],
     "deny": [],
     "ask": []

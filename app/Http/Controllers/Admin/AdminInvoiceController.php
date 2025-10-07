@@ -8,6 +8,7 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class AdminInvoiceController extends Controller
 {
@@ -239,5 +240,49 @@ class AdminInvoiceController extends Controller
 
         return redirect()->back()
             ->with('success', 'Facture marquée comme payée.');
+    }
+
+    /**
+     * Download invoice as PDF
+     */
+    public function downloadPDF($id)
+    {
+        $invoice = Invoice::with(['order.items.product', 'order.user'])
+            ->where('tenant_id', Auth::user()->tenant_id)
+            ->findOrFail($id);
+
+        $pdf = Pdf::loadView('invoices.pdf', compact('invoice'))
+            ->setPaper('a4', 'portrait')
+            ->setOptions([
+                'isHtml5ParserEnabled' => true,
+                'isRemoteEnabled' => true,
+                'defaultFont' => 'sans-serif',
+                'dpi' => 150,
+                'enable_php' => false,
+            ]);
+
+        return $pdf->download('facture-' . $invoice->invoice_number . '.pdf');
+    }
+
+    /**
+     * Stream invoice PDF in browser
+     */
+    public function streamPDF($id)
+    {
+        $invoice = Invoice::with(['order.items.product', 'order.user'])
+            ->where('tenant_id', Auth::user()->tenant_id)
+            ->findOrFail($id);
+
+        $pdf = Pdf::loadView('invoices.pdf', compact('invoice'))
+            ->setPaper('a4', 'portrait')
+            ->setOptions([
+                'isHtml5ParserEnabled' => true,
+                'isRemoteEnabled' => true,
+                'defaultFont' => 'sans-serif',
+                'dpi' => 150,
+                'enable_php' => false,
+            ]);
+
+        return $pdf->stream('facture-' . $invoice->invoice_number . '.pdf');
     }
 }
