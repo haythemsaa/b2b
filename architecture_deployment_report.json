@@ -1,0 +1,70 @@
+{
+    "timestamp": "2025-10-01 09:17:41",
+    "execution_time": 0.26,
+    "tables": {
+        "Utilisateurs": 7,
+        "Tenants": 1,
+        "Produits": 13,
+        "Catégories": 16,
+        "Commandes": 0,
+        "Groupes clients": 4,
+        "Prix personnalisés": 6,
+        "Messages": 0,
+        "Retours": 0,
+        "Subscriptions": 1,
+        "Factures": 0,
+        "Promotions": 0,
+        "Audit logs": 0,
+        "Permissions": 0,
+        "Adresses": 0,
+        "Tickets": 0,
+        "Wishlists": 0,
+        "Wishlist items": 0
+    },
+    "tests": {
+        "SuperAdmin": {
+            "Dashboard": true,
+            "Gestion tenants": true,
+            "Subscriptions": true,
+            "Factures": false,
+            "Audit logs": false,
+            "Analytics": true,
+            "Export données": true
+        },
+        "Grossiste": {
+            "Dashboard": true,
+            "Gestion vendeurs": true,
+            "Groupes clients": true,
+            "Catalogue produits": true,
+            "Prix personnalisés": true,
+            "Promotions": false,
+            "Commandes": true,
+            "Retours RMA": true,
+            "Permissions vendeurs": false,
+            "Messagerie": true
+        },
+        "Vendeur": {
+            "Dashboard": true,
+            "Catalogue personnalisé": true,
+            "Panier": true,
+            "Commandes": true,
+            "Retours": true,
+            "Messagerie": true,
+            "Permissions": false,
+            "Multi-adresses": false,
+            "Wishlists": false,
+            "Quick-order": true,
+            "Import CSV": true
+        },
+        "Support": {
+            "Tickets": false,
+            "Réponses": false,
+            "Catégories": true,
+            "Priorités": true,
+            "Assignation": true
+        }
+    },
+    "score": 72.7,
+    "passed_tests": 24,
+    "total_tests": 33
+}

@@ -1,0 +1,197 @@
+{
+    "date": "2025-10-01 09:24:53",
+    "version": "2.0",
+    "database": {
+        "existing": {
+            "users": {
+                "description": "Utilisateurs système",
+                "count": 7
+            },
+            "tenants": {
+                "description": "Tenants multi-tenant",
+                "count": 1
+            },
+            "products": {
+                "description": "Catalogue produits",
+                "count": 13
+            },
+            "categories": {
+                "description": "Catégories produits",
+                "count": 16
+            },
+            "orders": {
+                "description": "Commandes",
+                "count": 0
+            },
+            "order_items": {
+                "description": "Lignes de commande",
+                "count": 0
+            },
+            "customer_groups": {
+                "description": "Groupes clients",
+                "count": 4
+            },
+            "custom_prices": {
+                "description": "Prix personnalisés",
+                "count": 6
+            },
+            "messages": {
+                "description": "Messagerie",
+                "count": 0
+            },
+            "product_returns": {
+                "description": "Retours RMA",
+                "count": 0
+            },
+            "subscriptions": {
+                "description": "Abonnements",
+                "count": 1
+            },
+            "invoices": {
+                "description": "Facturation",
+                "count": 0
+            },
+            "promotions": {
+                "description": "Promotions ciblées",
+                "count": 0
+            },
+            "audit_logs": {
+                "description": "Journaux d'audit",
+                "count": 0
+            },
+            "user_permissions": {
+                "description": "Permissions utilisateurs",
+                "count": 0
+            },
+            "user_addresses": {
+                "description": "Adresses multiples",
+                "count": 0
+            },
+            "support_tickets": {
+                "description": "Tickets support",
+                "count": 0
+            },
+            "support_ticket_replies": {
+                "description": "Réponses tickets",
+                "count": 0
+            },
+            "wishlists": {
+                "description": "Listes de souhaits",
+                "count": 0
+            },
+            "wishlist_items": {
+                "description": "Items liste souhaits",
+                "count": 0
+            },
+            "notifications": {
+                "description": "Notifications",
+                "count": 0
+            }
+        },
+        "missing": [],
+        "coverage": 100
+    },
+    "models": {
+        "existing": [
+            "User",
+            "Tenant",
+            "Product",
+            "Category",
+            "Order",
+            "OrderItem",
+            "CustomerGroup",
+            "CustomPrice",
+            "Message",
+            "ProductReturn",
+            "Subscription",
+            "Invoice",
+            "Promotion",
+            "AuditLog",
+            "UserPermission",
+            "UserAddress",
+            "SupportTicket",
+            "SupportTicketReply",
+            "Wishlist",
+            "WishlistItem"
+        ],
+        "missing": [],
+        "coverage": 100
+    },
+    "controllers": {
+        "existing": {
+            "AuthController": "Authentification",
+            "DashboardController": "Dashboard vendeur",
+            "ProductController": "Catalogue produits",
+            "OrderController": "Gestion commandes",
+            "MessageController": "Messagerie",
+            "ReturnController": "Retours RMA",
+            "Admin\/AdminDashboardController": "Dashboard admin",
+            "Admin\/AdminUserController": "Gestion utilisateurs",
+            "Admin\/AdminProductController": "Gestion produits admin",
+            "Admin\/AdminOrderController": "Gestion commandes admin",
+            "Admin\/AdminCustomerGroupController": "Gestion groupes",
+            "Admin\/AdminCustomPriceController": "Gestion prix personnalisés",
+            "Admin\/AdminReturnController": "Gestion retours admin",
+            "SuperAdmin\/DashboardController": "Dashboard superadmin",
+            "SuperAdmin\/TenantController": "Gestion tenants",
+            "SuperAdmin\/ExportController": "Exports données"
+        },
+        "missing": [],
+        "coverage": 100
+    },
+    "routes": [],
+    "architecture_coverage": {
+        "by_role": {
+            "SuperAdmin": {
+                "Dashboard KPIs": true,
+                "Gestion tenants": true,
+                "Subscriptions": true,
+                "Facturation": true,
+                "Audit logs": true,
+                "Analytics": true,
+                "Export données": true,
+                "Gestion utilisateurs plateforme": true
+            },
+            "Grossiste": {
+                "Dashboard": true,
+                "Gestion vendeurs": true,
+                "Groupes clients": true,
+                "Catalogue produits": true,
+                "Prix personnalisés": true,
+                "Promotions": true,
+                "Commandes": true,
+                "Retours RMA": true,
+                "Permissions vendeurs": true,
+                "Messagerie": true,
+                "Analytics": true
+            },
+            "Vendeur": {
+                "Dashboard": true,
+                "Catalogue personnalisé": true,
+                "Panier": true,
+                "Commandes": true,
+                "Retours": true,
+                "Messagerie": true,
+                "Permissions": true,
+                "Multi-adresses": true,
+                "Wishlists\/Favoris": true,
+                "Quick-order": true,
+                "Import CSV": true
+            },
+            "Support": {
+                "Système tickets": true,
+                "Réponses": true,
+                "Catégories": true,
+                "Priorités": true,
+                "Assignation": true
+            }
+        },
+        "global": 100,
+        "implemented": 35,
+        "total": 35
+    },
+    "score": {
+        "average": 100,
+        "status": "EXCELLENT"
+    }
+}

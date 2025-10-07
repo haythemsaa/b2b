@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(\"C:\\wamp64\\bin\\php\\php8.1.0\\php.exe\" artisan tinker --execute=\"dump(''web.php lines: '' . count(file(''C:/xampp2025/htdocs/b2bn/routes/web.php'')));\")",
+      "Bash(\"C:\\wamp64\\bin\\php\\php8.1.0\\php.exe\" artisan route:list)",
+      "Bash(findstr:*)",
+      "Bash(composer:*)",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git add:*)",
+      "Bash(if exist nul del nul)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
